@@ -4,3 +4,6 @@
 -Product card done
 -Grid done
 -Started working on filter menu
+-Added dummy data
+-Rendering products items dynamically 
+-Started working on Load More BUTTON
