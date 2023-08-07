@@ -8,7 +8,14 @@
     display: inline;
     width: 80px;
     height: 80px;
-    left: 100px;
+    left: 350px;
+}
+
+.container{
+    width: 1920;
+    background-color: #03DAC6;
+    display: flex;
+    justify-content: center;
 }
 
 

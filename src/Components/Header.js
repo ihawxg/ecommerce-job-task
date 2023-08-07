@@ -7,7 +7,8 @@ import styles from "../Styles/Header.module.css";
 
 
 const Container = styled.div`
-height: 12vh;
+height: 10vh;
+width: 1280px;
 background-color: #03DAC6;
 display: flex; 
 align-items: center; 
@@ -17,7 +18,7 @@ justify-content : center;
 const Nav = styled.ul`
 display: flex;
 flex-direction: row;
-gap: 60px;
+gap: 40px;
 font-weight: bold;
 font-size: 20px;
 `
@@ -40,7 +41,7 @@ export default function Header() {
 
 
     return (
-        <div>
+        <div className={styles.container}>
             <Container>
                 <Nav>
                     <NavItem> <Link className={styles.textDecoration} to='/shoes'>Shoes</Link> </NavItem>
