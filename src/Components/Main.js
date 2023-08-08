@@ -17,6 +17,8 @@ width: 1280px;
 export default function Main(props) {
 
     const [products, setProducts] = useState([])
+    const [productsCount,setProductsCount] = useState(0);
+    const [totalProducts,setTotalProducts] = useState(0);
 
     useEffect(() => {
         fetch("https://ecommerce-8c456-default-rtdb.europe-west1.firebasedatabase.app/products.json")
@@ -24,6 +26,8 @@ export default function Main(props) {
             .then(data => {
                 let filteredProducts = data.filter(product => product.id <= 8);
                 setProducts(filteredProducts)
+                setProductsCount(filteredProducts.length)
+                setTotalProducts(data.length)
             })
     }, [])
 
@@ -33,6 +37,7 @@ export default function Main(props) {
             .then(data => {
                 let filteredProducts = data.filter(product => product.id <= products.length+4);
                 setProducts(filteredProducts)
+                setProductsCount(filteredProducts.length);
             })
     }
 
@@ -48,7 +53,7 @@ export default function Main(props) {
                         </div>
                         <button onClick={loadMore} className={styles.loadMoreButton}>Load more</button>
                     </div>
-
+                    <h1>{productsCount} of {totalProducts}</h1>
                 </Container>
             </div>
 
