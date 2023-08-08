@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import styles from "../Styles/ProductCard.module.css"
 import favourite from '../sources/favourite.png'
 import { useState } from 'react';
+import { logDOM } from '@testing-library/react';
+
 
 
 const Container = styled.div`
@@ -31,10 +33,11 @@ export default function ProductCard(props) {
     setIsAddedToCart(false);
   }
 
+
   let button = !isAddedToCart ? <button className={styles.favourited} onClick={addToCart}>Добави в любими</button> : <button className={styles.unFavourited} onClick={removeFromCart}>Премахни от любими</button>;
 
   return (
-    <Container>
+    <Container className={props.className} onMouseLeave={props.onMouseLeave} onMouseEnter = {props.onMouseEnter}>
       <img className={styles.favImage} src={favourite} alt="" />
       <img className={styles.image} src={props.img} alt="" />
       <h1 className={styles.boldText}>{props.title}</h1>
