@@ -1,7 +1,10 @@
 import React from 'react'
 import styled from 'styled-components';
+import styles from "../Styles/Filter.module.css"
+import  Select  from './Select';
 
 const Container = styled.div`
+position: relative;
 height: 100% ;
 width: 300px;
 border: 1px solid black;
@@ -25,19 +28,23 @@ export default function Filter(props) {
 
     let brands = Array.from(brandsSet);
     let colors = Array.from(colorsSet);
-    let prices= Array.from(pricesSet);
-
-    console.log(brands);
-
-    console.log(props.data);
+    let prices = Array.from(pricesSet);
 
     return (
         <Container>
-            <ul>
-                <li>Brands: {brands}</li>
-                <li>colors : {colors}</li>
-                <li>prices : {prices}</li>
+
+            
+
+            {/* <h1 className={styles.filterText}>Филтрирай</h1> */}
+            <ul className={styles.filterUl}>
+
+            <Select brands={brands}></Select>
+                <h1 className={styles.filterLi}>prices : <li> {prices}</li> </h1>
+                <h1 className={styles.filterLi}>colors :  <li> {colors}</li></h1>
+                <h1 className={styles.filterLi}>brands : <li> {brands}</li></h1>
             </ul>
+
+
         </Container>
     )
 }

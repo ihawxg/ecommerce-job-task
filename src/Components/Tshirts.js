@@ -4,12 +4,19 @@ import Filter from './Filter';
 import { useEffect, useState } from "react";
 import styles from '../Styles/Tshirts.module.css';
 
+
+
+
 const Container = styled.div`
 display: flex;
 justify-content: center;
 height: 78vh;
 width: 1280px;
 `
+
+
+
+
 
 export default function Tshirts() {
     const [products, setProducts] = useState([])
