@@ -3,7 +3,7 @@ import ProductCard from './ProductCard';
 import styles from '../Styles/Main.module.css';
 import Filter from './Filter';
 import data from "../data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Container = styled.div`
 display: flex;
@@ -16,32 +16,39 @@ width: 1280px;
 
 export default function Main(props) {
 
-    const [loadMoreClothes, setLoadMoreClothes] = useState(false)
+    const [products, setProducts] = useState([])
 
-    let clothCount = 0;
+    useEffect(() => {
+        fetch("https://ecommerce-8c456-default-rtdb.europe-west1.firebasedatabase.app/products.json")
+            .then(resp => resp.json())
+            .then(data => {
+                let filteredProducts = data.filter(product => product.id <= 8);
+                setProducts(filteredProducts)
+            })
+    }, [])
 
-    const clothes = props.clothes;
-
-    const loadMore = () => {
-        setLoadMoreClothes(true);
+    const loadMore = () =>{
+        fetch("https://ecommerce-8c456-default-rtdb.europe-west1.firebasedatabase.app/products.json")
+            .then(resp => resp.json())
+            .then(data => {
+                let filteredProducts = data.filter(product => product.id <= products.length+4);
+                setProducts(filteredProducts)
+            })
     }
+
 
     return (
         <>
             <div className={styles.container}>
                 <Container>
                     <Filter></Filter>
-                    <div className={styles.card}>
-
-                        {data.map(cloth => {
-                            if (cloth.id > 12) {
-                                clothCount = cloth.id;
-                                return;
-                            }
-                            return <ProductCard img={cloth.image} title={cloth.title} description={cloth.description} price={cloth.price}></ProductCard>
-                        })}
-                        {data.length > 12 && <button onClick={loadMore} className={styles.loadMoreButton}>Load more</button>}
+                    <div >
+                        <div className={styles.card}>
+                            {products.map((cloth, i) => { return <ProductCard img={cloth.image} title={cloth.title} description={cloth.description} price={cloth.price}></ProductCard> })}
+                        </div>
+                        <button onClick={loadMore} className={styles.loadMoreButton}>Load more</button>
                     </div>
+
                 </Container>
             </div>
 

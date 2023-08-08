@@ -4,6 +4,7 @@ import styles from "../Styles/ProductCard.module.css"
 import favourite from '../sources/favourite.png'
 import { useState } from 'react';
 
+
 const Container = styled.div`
 position: relative;
 display: flex;
@@ -20,15 +21,17 @@ gap:8px
 
 export default function ProductCard(props) {
 
-  const [isAddedToCart,setIsAddedToCart] = useState(false);
+  const [isAddedToCart, setIsAddedToCart] = useState(false);
 
-  const addToCart = ()=>{
+  const addToCart = () => {
     setIsAddedToCart(true);
   }
 
-  const removeFromCart = ()=>{
+  const removeFromCart = () => {
     setIsAddedToCart(false);
   }
+
+  let button = !isAddedToCart ? <button className={styles.favourited} onClick={addToCart}>Добави в любими</button> : <button className={styles.unFavourited} onClick={removeFromCart}>Премахни от любими</button>;
 
   return (
     <Container>
@@ -37,9 +40,10 @@ export default function ProductCard(props) {
       <h1 className={styles.boldText}>{props.title}</h1>
       <p>{props.description}</p>
       <h1 className={styles.boldText} >{props.price}</h1>
-      <div style={{margin: "auto"}}>
-      {!isAddedToCart ?  <button className={styles.favourited} onClick={addToCart}>Добави в любими</button> :  <button className={styles.unFavourited} onClick={removeFromCart}>Премахни от любими</button>}
+      <div style={{ margin: "auto" }}>
+        {button}
       </div>
-      </Container>
+    </Container>
+
   )
 }
