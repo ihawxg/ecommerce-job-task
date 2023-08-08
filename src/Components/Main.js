@@ -47,13 +47,14 @@ export default function Main(props) {
             <div className={styles.container}>
                 <Container>
                     <Filter></Filter>
+                    <h1>{productsCount} от {totalProducts} Продукта</h1>
                     <div >
                         <div className={styles.card}>
                             {products.map((cloth, i) => { return <ProductCard img={cloth.image} title={cloth.title} description={cloth.description} price={cloth.price}></ProductCard> })}
                         </div>
-                        <button onClick={loadMore} className={styles.loadMoreButton}>Load more</button>
+                        {productsCount !== totalProducts ? <button onClick={loadMore} className={styles.loadMoreButton}>Load more</button> : null }
                     </div>
-                    <h1>{productsCount} of {totalProducts}</h1>
+                    
                 </Container>
             </div>
 
