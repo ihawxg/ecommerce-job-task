@@ -1,6 +1,15 @@
 import React from 'react'
+import Home from '../Components/Home'
+
+
+
 const HomePage = () => {
-  return <h4>home page</h4>
+  return <main>
+    <Home></Home>
+    {/* <FeaturedProducts></FeaturedProducts>
+    <Services></Services>
+    <Contant></Contant> */}
+  </main>
 }
 
 export default HomePage
