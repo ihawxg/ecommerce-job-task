@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Route, Routes } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import styled from 'styled-components'
 import logo from '../assets/logo.jpg'
 import { FaBars } from 'react-icons/fa';

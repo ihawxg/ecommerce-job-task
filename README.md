@@ -14,3 +14,8 @@
 - done with x out of y products
 - some visual changes
 - add to favourites button
+
+8/9/2023
+-styled the navbar and footer (also made is responsive) added blank pages 
+-
+
