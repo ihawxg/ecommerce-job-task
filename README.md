@@ -17,5 +17,14 @@
 
 8/9/2023
 -styled the navbar and footer (also made is responsive) added blank pages 
--
+-done with most of the visual stuff with the site
+-everything responsive up to now
+
+9/9/2023
+-made FeaturedProducts component and logic
+-made Single products component and logic
+
+
+
+
 
