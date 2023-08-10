@@ -2,6 +2,7 @@ import React from 'react'
 import { useProductsContext } from '../context/products_context'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import Product from './Product'
 
 const FeaturedProducts = () => {
   const { products_loading: loading, product_error: error, featured_products: featured } = useProductsContext();
@@ -19,7 +20,7 @@ const FeaturedProducts = () => {
       <div className='underline'></div>
     </div>
     <div className="section-center featured">
-      
+        {featured.map(product => <Product key={product.id} {...product}/>)}
     </div>
   </Wrapper>
 }
