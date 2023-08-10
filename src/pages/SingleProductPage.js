@@ -43,7 +43,7 @@ const SingleProductPage = () => {
   }
 
 
-  const { name, price, description, stock, stars, reviews, id: productId, company, image } = product;
+  const { name, price, description, stock, stars, reviews, id: productId, company, images } = product;
 
   return <Wrapper>
     <PageHero title={name} product></PageHero>
@@ -52,11 +52,10 @@ const SingleProductPage = () => {
         back to products
       </Link>
       <div className="product-center">
-        <ProductImages />
+        <ProductImages images={images}/>
         <section className="content">
           <h2>{name}</h2>
           <Stars></Stars>
-
           <h5 className='price'>{formatPrice(price)}</h5>
           <p className='desc'>{description}</p>
           <p className='info'>
