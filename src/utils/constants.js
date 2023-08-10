@@ -44,5 +44,6 @@ export const services = [
 ]
 
 
-export const products_url = 'https://ecommerce-8c456-default-rtdb.europe-west1.firebasedatabase.app/.json'
+export const products_url = 'https://ecommerce-8c456-default-rtdb.europe-west1.firebasedatabase.app/Products.json'
+export const single_product_url = 'https://ecommerce-8c456-default-rtdb.europe-west1.firebasedatabase.app/ProductsById'
 
