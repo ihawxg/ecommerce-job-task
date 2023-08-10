@@ -44,3 +44,5 @@ export const services = [
 ]
 
 
+export const products_url = 'https://ecommerce-8c456-default-rtdb.europe-west1.firebasedatabase.app/.json'
+
