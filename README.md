@@ -27,7 +27,10 @@
 -product card styled and 100% done
 -colors buttons and add to cart button added quantity buttons added
 
-
+11/8/2023
+-filter reducers done
+-products grid view done
+-products list view done
 
 
 
