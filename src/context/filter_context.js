@@ -7,7 +7,9 @@ import { LOAD_PRODUCTS } from "../actions";
 
 const initialState={
     filtered_products:[],
-    all_products:[]
+    all_products:[],
+    grid_view: true,
+
 }
 
 
