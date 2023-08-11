@@ -22,12 +22,14 @@ const SingleProductPage = () => {
 
   products.forEach((product, index) => {
     if (product.id === id) {
-      urlId = index ;
+      urlId = index;
+      // console.log("urlId: " + id + ",   index: " + product.id +" SUCESSSSS") ;
     }
+    // else {
+      // console.log("urlId: " + id + ",   index: " + index);
+    // }
   });
 
-  // console.log(urlId);
-  // console.log(id);
 
   useEffect(() => {
     fetchSingleProduct(`${url}/${urlId}.json`);
@@ -52,7 +54,7 @@ const SingleProductPage = () => {
         back to products
       </Link>
       <div className="product-center">
-        <ProductImages images={images}/>
+        <ProductImages images={images} />
         <section className="content">
           <h2>{name}</h2>
           <Stars stars={stars} reviews={reviews}></Stars>
@@ -61,7 +63,7 @@ const SingleProductPage = () => {
           <p className='info'>
             <span>Available :</span>
 
-            {stock > 0 ?'In Stock':'out of stock'}
+            {stock > 0 ? 'In Stock' : 'out of stock'}
 
           </p>
           <p className='info'>
@@ -73,7 +75,7 @@ const SingleProductPage = () => {
             {company}
           </p>
           <hr />
-          {stock > 0 && <AddToCart product={product}/>}
+          {stock > 0 && <AddToCart product={product} />}
         </section>
       </div>
     </div>
