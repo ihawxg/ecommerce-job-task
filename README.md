@@ -35,7 +35,8 @@
 
 12/8/2023
 -search,category,company,colors,price filters added
--
+-filters functionality added
+-list view visual updates
 
 
 
