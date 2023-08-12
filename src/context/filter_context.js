@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useReducer } from "react";
 import reducer from '../reducers/filter_reducer'
 import { useProductsContext } from "./products_context";
-import { FILTER_PRODUCTS, LOAD_PRODUCTS, SET_GRIDVIEW, SET_LISTVIEW, SORT_PRODUCTS, UPDATE_FILTERS, UPDATE_SORT } from "../actions";
+import { CLEAR_FILTERS, FILTER_PRODUCTS, LOAD_PRODUCTS, SET_GRIDVIEW, SET_LISTVIEW, SORT_PRODUCTS, UPDATE_FILTERS, UPDATE_SORT } from "../actions";
 
 
 const initialState={
@@ -14,7 +14,7 @@ const initialState={
         text:'',
         company : 'all',
         category : 'all',
-        colors : 'all',
+        color : 'all',
         min_price: 0,
         max_price : 0,
         price : 0,
@@ -58,10 +58,19 @@ export const FilterProvider = ({children})=>{
         if(name === 'category'){
             value = e.target.textContent;
         }
+        if(name === 'color'){
+            value = e.target.dataset.color;
+        }
+        if(name === 'price'){
+            value=Number(value);
+        }
+        if(name === 'shipping'){
+            value = e.target.checked;
+        }
         dispatch({type:UPDATE_FILTERS,payload:{name,value}})
     }
     const clearFilters = (e)=>{
-
+        dispatch({type : CLEAR_FILTERS})
     }
 
     return( <FilterContext.Provider value={{...state,setGridView,setListView,updateSort,updateFilters,clearFilters}}>

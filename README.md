@@ -31,6 +31,11 @@
 -filter reducers done
 -products grid view done
 -products list view done
+-sort funtionality
+
+12/8/2023
+-search,category,company,colors,price filters added
+-
 
 
 
