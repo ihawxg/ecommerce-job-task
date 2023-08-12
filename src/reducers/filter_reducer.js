@@ -1,9 +1,11 @@
 /* eslint-disable default-case */
-import { LOAD_PRODUCTS, SET_GRIDVIEW, SET_LISTVIEW, SORT_PRODUCTS, UPDATE_SORT } from "../actions"
+import { FILTER_PRODUCTS, LOAD_PRODUCTS, SET_GRIDVIEW, SET_LISTVIEW, SORT_PRODUCTS, UPDATE_FILTERS, UPDATE_SORT } from "../actions"
 
 const filter_reducer = (state, action) => {
     if (action.type === LOAD_PRODUCTS) {
-        return { ...state, all_products: [...action.payload], filtered_products: [...action.payload] }
+        let maxPrice = action.payload.map(p => p.price)
+        maxPrice = Math.max(...maxPrice);
+        return { ...state, all_products: [...action.payload], filtered_products: [...action.payload], filters: { ...state.filters, maxPrice: maxPrice, price: maxPrice } }
     }
 
     if (action.type === SET_GRIDVIEW) {
@@ -21,20 +23,29 @@ const filter_reducer = (state, action) => {
 
         switch (sort) {
             case "price-lowest":
-                tempProducts = tempProducts.sort((a,b)=>a.price-b.price )
+                tempProducts = tempProducts.sort((a, b) => a.price - b.price)
                 break;
             case "price-highest":
-                tempProducts = tempProducts.sort((a,b)=>b.price-a.price )
+                tempProducts = tempProducts.sort((a, b) => b.price - a.price)
                 break;
             case "name-a":
-                tempProducts = tempProducts.sort((a,b)=>a.name.localeCompare(b.name))
+                tempProducts = tempProducts.sort((a, b) => a.name.localeCompare(b.name))
                 break;
             case "name-z":
-                tempProducts = tempProducts.sort((a,b)=>b.name.localeCompare(a.name))
+                tempProducts = tempProducts.sort((a, b) => b.name.localeCompare(a.name))
                 break;
         }
 
-        return { ...state,filtered_products:tempProducts }
+        return { ...state, filtered_products: tempProducts }
+    }
+    if(action.type === UPDATE_FILTERS){
+        const {name,value} = action.payload;
+        return {...state,filters:{...state.filters,[name]:value}}
+    }
+
+    if(action.type === FILTER_PRODUCTS){
+        console.log("filterrr");
+        return {...state}
     }
     return state;
 }
