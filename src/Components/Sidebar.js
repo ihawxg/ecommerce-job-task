@@ -2,10 +2,11 @@ import React from 'react'
 import styled from 'styled-components';
 import logo from '../assets/logo.jpg'
 import { FaTimes } from 'react-icons/fa';
-import {links} from '../utils/constants'
+import { links } from '../utils/constants'
 import { Link } from 'react-router-dom';
 import CartButtons from './CartButtons';
 import { useProductsContext } from '../context/products_context';
+import { useUserContext } from '../context/user_context';
 
 
 const Sidebar = () => {
@@ -13,7 +14,8 @@ const Sidebar = () => {
   const data = useProductsContext()
   console.log(data);
 
-  const {isSidebarOpen,closeSidebar} = useProductsContext();
+  const { myUser } = useUserContext();
+  const { isSidebarOpen, closeSidebar } = useProductsContext();
 
   return <SidebarContainer>
     <aside className={`${isSidebarOpen ? 'sidebar show-sidebar' : 'sidebar'}`}>
@@ -28,6 +30,11 @@ const Sidebar = () => {
           const { id, text, url } = link;
           return <li key={id}> <Link to={url} onClick={closeSidebar}>{text}</Link></li>
         })}
+        {myUser &&
+          <li>
+            <Link to='/checkout' onClick={closeSidebar}>checkout</Link>
+          </li>
+        }
         <li>
           <Link to='/checkout' onClick={closeSidebar} >checkout</Link>
         </li>
