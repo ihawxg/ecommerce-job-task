@@ -38,6 +38,10 @@
 -filters functionality added
 -list view visual updates
 
+13/8/2023
+-done with the cart page visually and functionality wise 
+-done with authentication (used auth0 because of the faster setup)
+
 
 
 
