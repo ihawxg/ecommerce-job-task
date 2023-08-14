@@ -4,6 +4,8 @@ import About from './AboutPage';
 import Products from './ProductsPage'
 import Checkout from './CheckoutPage';
 import Error from './ErrorPage';
+import PrivateRoute from "./PrivateRoute";
+import SingleProduct from './SingleProductPage'
 
 
 export{
@@ -12,5 +14,7 @@ export{
     About,
     Products,
     Checkout,
-    Error
+    Error,
+    PrivateRoute,
+    SingleProduct
 }
