@@ -3,15 +3,28 @@ import styled from 'styled-components'
 import { useCartContext } from '../context/cart_context'
 import { formatPrice } from '../utils/utils';
 import AmountButtons from './AmountButtons';
-import {FaTrash} from 'react-icons/fa'
+import { FaTrash } from 'react-icons/fa'
+import { toast } from 'react-toastify';
 
 const CartItem = ({ id, image, name, color, price, amount }) => {
   const { removeItem, toggleAmount } = useCartContext();
+
+  const notify = () => toast.error("Product removed from Cart", {
+    position: "bottom-right",
+    autoClose: 2000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  });
+
   const increase = () => {
-    toggleAmount(id,'inc')
+    toggleAmount(id, 'inc')
   }
   const decrease = () => {
-    toggleAmount(id,'dec')
+    toggleAmount(id, 'dec')
   }
   return <Wrapper>
     <div className='title'>
@@ -29,7 +42,7 @@ const CartItem = ({ id, image, name, color, price, amount }) => {
     <h5 className='subtotal'>
       {formatPrice(price * amount)}
     </h5>
-    <button type='button' className='remove-btn' onClick={()=>removeItem(id)}><FaTrash></FaTrash></button>
+    <button type='button' className='remove-btn' onClick={() => { removeItem(id); notify() }}><FaTrash></FaTrash></button>
   </Wrapper>
 }
 

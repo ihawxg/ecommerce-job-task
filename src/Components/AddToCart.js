@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 import AmountButtons from './AmountButtons';
 import { useCartContext } from '../context/cart_context';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const AddToCart = (props) => {
   const {addToCart} = useCartContext()
@@ -12,6 +15,17 @@ const AddToCart = (props) => {
 
   const [mainColor, setMainColor] = useState(colors[0]);
   const [amount, setAmount] = useState(1);
+
+  const notify = () => toast.success('Product added to Cart', {
+    position: "bottom-right",
+    autoClose: 2000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    });
 
   const increase = () => {
     setAmount((oldAmount) => {
@@ -50,7 +64,7 @@ const AddToCart = (props) => {
     </div>
     <div className='btn-container'>
       <AmountButtons amount={amount} increase={increase} decrease={decrease} />
-      <Link to='/cart' className='btn' onClick={()=>{addToCart(id,mainColor,amount,props.product)}}>add to cart</Link>
+      <Link to='/cart' className='btn' onClick={()=>{addToCart(id,mainColor,amount,props.product); notify()}}>add to cart</Link>
     </div>
   </Wrapper>
 }
