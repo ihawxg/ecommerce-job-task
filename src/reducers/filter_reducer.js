@@ -1,5 +1,5 @@
 /* eslint-disable default-case */
-import { CLEAR_FILTERS, FILTER_PRODUCTS, LOAD_PRODUCTS, SET_GRIDVIEW, SET_LISTVIEW, SORT_PRODUCTS, UPDATE_FILTERS, UPDATE_SORT } from "../actions"
+import { CLEAR_FILTERS, FILTER_PRODUCTS, LOAD_ALL_FETCHED_PRODUCTS, LOAD_FILTERED_PRODUCTS_CATEGORY, LOAD_PRODUCTS, SET_GRIDVIEW, SET_LISTVIEW, SORT_PRODUCTS, UPDATE_FILTERS, UPDATE_SORT } from "../actions"
 
 const filter_reducer = (state, action) => {
     if (action.type === LOAD_PRODUCTS) {
@@ -11,6 +11,38 @@ const filter_reducer = (state, action) => {
             filtered_products: [...action.payload],
             filters: { ...state.filters, max_price: maxPrice, price: maxPrice },
         }
+    }
+
+    if(action.type === LOAD_ALL_FETCHED_PRODUCTS){
+        return {...state,all_fetched_products:[...action.payload]}
+    }
+
+    if(action.type === LOAD_FILTERED_PRODUCTS_CATEGORY){
+        const { all_fetched_products } = state;
+        const { text, category, company, color, price, shipping } = state.filters;
+        let tempProducts = [...all_fetched_products];
+        if (text) {
+            tempProducts = tempProducts.filter(product => product.name.toLowerCase().startsWith(text))
+        }
+        if (category !== 'all') {
+            tempProducts = tempProducts.filter(product => product.category === category);
+        }
+        if (company !== 'all') {
+            tempProducts = tempProducts.filter(product => product.company === company);
+        }
+
+        if (color !== 'all') {
+            tempProducts = tempProducts.filter(product => product.colors.find(c => c === color));
+        }
+
+        tempProducts = tempProducts.filter(product => product.price <= price)
+        
+        if (shipping) {
+            tempProducts = tempProducts.filter(product => product.shipping === true);
+        }
+
+
+        return { ...state, all_filtered_products_by_category: tempProducts };
     }
 
     if (action.type === SET_GRIDVIEW) {

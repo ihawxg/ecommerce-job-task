@@ -2,11 +2,13 @@ import React, { useContext, useEffect } from "react";
 import { useReducer } from "react";
 import reducer from '../reducers/filter_reducer'
 import { useProductsContext } from "./products_context";
-import { CLEAR_FILTERS, FILTER_PRODUCTS, LOAD_PRODUCTS, SET_GRIDVIEW, SET_LISTVIEW, SORT_PRODUCTS, UPDATE_FILTERS, UPDATE_SORT } from "../actions";
+import { CLEAR_FILTERS, FILTER_PRODUCTS, LOAD_ALL_FETCHED_PRODUCTS, LOAD_FILTERED_PRODUCTS_CATEGORY, LOAD_PRODUCTS, SET_GRIDVIEW, SET_LISTVIEW, SORT_PRODUCTS, UPDATE_FILTERS, UPDATE_SORT } from "../actions";
 
 
 const initialState={
     filtered_products:[],
+    all_fetched_products:[],
+    all_filtered_products_by_category:[],
     all_products:[],
     grid_view: true,
     sort: 'price-lowest',
@@ -27,7 +29,7 @@ const FilterContext = React.createContext();
 
 export const FilterProvider = ({children})=>{
 
-    const {products} = useProductsContext();
+    const {products,all_fetched_products} = useProductsContext();
     const[state,dispatch] = useReducer(reducer,initialState);
 
     useEffect(()=>{
@@ -35,6 +37,11 @@ export const FilterProvider = ({children})=>{
     },[products])
 
     useEffect(()=>{
+        dispatch({type:LOAD_ALL_FETCHED_PRODUCTS,payload:all_fetched_products})
+    },[all_fetched_products])
+
+    useEffect(()=>{
+        dispatch({type:LOAD_FILTERED_PRODUCTS_CATEGORY})
         dispatch({type:FILTER_PRODUCTS})
         dispatch({type:SORT_PRODUCTS})
     },[products,state.sort,state.filters])
