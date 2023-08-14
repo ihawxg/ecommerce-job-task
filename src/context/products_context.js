@@ -39,7 +39,7 @@ export const ProductsProvider = ({ children }) => {
       const response = await axios.get(url);
       const products = response.data;
       const displayedProducts = response.data.slice(0, 12);
-      console.log(displayedProducts);
+      
       dispatch({type:GET_PRODUCTS_SUCCESS,payload:[products,displayedProducts]})
     }
     catch(err){

@@ -47,7 +47,7 @@ const Filters = () => {
         <div className='form-control'>
           <h5>price</h5>
           <p className='price'>{formatPrice(price)}</p>
-          {console.log(max_price,min_price)}
+          
           <input type="range" name="price" min={min_price} max= {max_price} onChange={updateFilters} value={price} />
         </div>
         <div className="form-control shipping">

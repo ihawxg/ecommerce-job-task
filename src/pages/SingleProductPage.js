@@ -23,11 +23,7 @@ const SingleProductPage = () => {
   products.forEach((product, index) => {
     if (product.id === id) {
       urlId = index;
-      // console.log("urlId: " + id + ",   index: " + product.id +" SUCESSSSS") ;
     }
-    // else {
-      // console.log("urlId: " + id + ",   index: " + index);
-    // }
   });
 
 

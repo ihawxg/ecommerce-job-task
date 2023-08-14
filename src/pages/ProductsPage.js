@@ -12,8 +12,6 @@ const ProductsPage = () => {
 
   const { filtered_products: products,all_filtered_products_by_category:filtered_products } = useFilterContext();
 
-  console.log(products);
-
   const { loadMoreProducts } = useProductsContext();
   return <main>
     <PageHero title="products"></PageHero>
