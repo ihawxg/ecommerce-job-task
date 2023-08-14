@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PageHero from '../Components/PageHero';
-import aboutImg from '../assets/about.avif'
+import aboutImg from '../assets/about.jpg'
 
 const AboutPage = () => {
   return <main>
@@ -14,7 +14,7 @@ const AboutPage = () => {
           <div className='underline'></div>
         </div>
         <p>
-          Да напиша тука неш ...
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, at sed omnis corporis doloremque possimus velit! Repudiandae nisi odit, aperiam odio ducimus, obcaecati libero et quia tempora excepturi quis alias?
         </p>
       </article>
     </Wrapper>

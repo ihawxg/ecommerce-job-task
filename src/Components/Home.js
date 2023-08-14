@@ -1,23 +1,24 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import about from '../assets/about.avif'
+import about from '../assets/about.jpg'
+import about2 from '../assets/about2.jpg'
 
 const Home = () => {
   return <Wrapper className='section-center'>
     <article className='content'>
       <h1>
-        Lorem ipsum <br/>
-        Lorem ipsum
+        Design Your <br/>
+        Home
       </h1>
       <p>
-        Да напиша неш тука ...
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, at sed omnis corporis doloremque possimus velit! Repudiandae nisi odit, aperiam odio ducimus, obcaecati libero et quia tempora excepturi quis alias?
       </p>
       <Link to='/products' className='btn hero-btn'>Shop now</Link>
     </article>
     <article className='img-container'>
       <img src={about} alt="about" className='main-img' />
-      <img src={about} alt="about" className='accent-img' />
+      <img src={about2} alt="about" className='accent-img' />
     </article>
   </Wrapper>
 }

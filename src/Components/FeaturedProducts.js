@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 const FeaturedProducts = () => {
   const { products_loading: loading, product_error: error, featured_products: featured } = useProductsContext();
   if (loading) {
-
+    
   }
   if(error){
   

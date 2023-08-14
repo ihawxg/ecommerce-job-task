@@ -4,6 +4,7 @@ import { FaSearch } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { formatPrice } from '../utils/utils'
 
+
 const Product = (props) => {
 
   const { image, name, price, id, beforeDiscountPrice } = props;
@@ -17,7 +18,7 @@ const Product = (props) => {
     </div>
     <footer>
       <h5>{name}</h5>
-      {beforeDiscountPrice ? <p>{(price / 100)} <span style={{ textDecorationLine: 'line-through', textDecorationStyle: 'solid' }} >{(beforeDiscountPrice / 100).toFixed(2)}</span>лв.</p> : formatPrice(price)}
+      {beforeDiscountPrice ? <p> <span style={{fontWeight: "500"}}>{(price / 100)} </span><span style={{ textDecorationLine: 'line-through', textDecorationStyle: 'solid'}} >{(beforeDiscountPrice / 100).toFixed(2)}</span>лв.</p> : <p>{formatPrice(price)}</p>}
     </footer>
   </Wrapper>
 }
@@ -77,5 +78,7 @@ const Wrapper = styled.article`
     color: var(--clr-primary-5);
     letter-spacing: var(--spacing);
   }
+
 `
+
 export default Product
