@@ -6,20 +6,20 @@ import { formatPrice } from '../utils/utils'
 
 const Product = (props) => {
 
-    const { image, name, price, id } = props;
+  const { image, name, price, id, beforeDiscountPrice } = props;
 
-    return <Wrapper>
-        <div className="container">
-            <img src={image} alt={name} />
-            <Link to={`/products/${id}`} className='link'>
-                <FaSearch></FaSearch>
-            </Link>
-        </div>
-        <footer>
-            <h5>{name}</h5>
-            <p>{formatPrice(price)}</p>
-        </footer>
-    </Wrapper>
+  return <Wrapper>
+    <div className="container">
+      <img src={image} alt={name} />
+      <Link to={`/products/${id}`} className='link'>
+        <FaSearch></FaSearch>
+      </Link>
+    </div>
+    <footer>
+      <h5>{name}</h5>
+      {beforeDiscountPrice ? <p>{(price / 100)} <span style={{ textDecorationLine: 'line-through', textDecorationStyle: 'solid' }} >{(beforeDiscountPrice / 100).toFixed(2)}</span>лв.</p> : formatPrice(price)}
+    </footer>
+  </Wrapper>
 }
 
 const Wrapper = styled.article`

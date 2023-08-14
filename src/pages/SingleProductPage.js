@@ -41,7 +41,7 @@ const SingleProductPage = () => {
   }
 
 
-  const { name, price, description, stock, stars, reviews, id: productId, company, images } = product;
+  const { name, price, description, stock, stars, reviews, id: productId, company, images,beforeDiscountPrice } = product;
 
   return <Wrapper>
     <PageHero title={name} product></PageHero>
@@ -54,7 +54,7 @@ const SingleProductPage = () => {
         <section className="content">
           <h2>{name}</h2>
           <Stars stars={stars} reviews={reviews}></Stars>
-          <h5 className='price'>{formatPrice(price)}</h5>
+          {beforeDiscountPrice ? <h5 className='price'>{(price / 100)} <span style={{ textDecorationLine: 'line-through', textDecorationStyle: 'solid' }} >{(beforeDiscountPrice / 100).toFixed(2)}</span>лв.</h5> : <h5 className='price'>{formatPrice(price)}</h5>}
           <p className='desc'>{description}</p>
           <p className='info'>
             <span>Available :</span>

@@ -54,6 +54,7 @@
       "image": "https://i.ibb.co/QfFtdkY/product-4.jpg",
       "name": "armchair",
       "price": 12599,
+      "beforeDiscountPrice" : 20000,
       "shipping": true
     },
     {
@@ -156,6 +157,7 @@
       "image": "https://i.ibb.co/gTGnJJc/product-11.jpg",
       "name": "modern bookshelf",
       "price": 31999
+      
     },
     {
       "category": "living room",
@@ -168,6 +170,7 @@
       "image": "https://i.ibb.co/jV3rX9M/product-12.jpg",
       "name": "modern poster",
       "price": 3099,
+      "beforeDiscountPrice" : 5000,
       "shipping": true
     },
     {
@@ -180,7 +183,8 @@
       "id": "rec7CjDWKRgNQtrKe",
       "image": "https://i.ibb.co/xJprp5L/product-13.jpg",
       "name": "shelf",
-      "price": 30999
+      "price": 30999,
+      "beforeDiscountPrice" : 50000
     },
     {
       "category": "living room",
@@ -207,6 +211,7 @@
       "image": "https://i.ibb.co/nrJTkpY/product-15.jpg",
       "name": "sofa set",
       "price": 129999,
+      "beforeDiscountPrice" : 160000,
       "shipping": true
     },
     {
@@ -246,7 +251,8 @@
       "id": "rec3jeKnhInKHJuz2",
       "image": "https://i.ibb.co/jLRSnLr/product-18.jpg",
       "name": "vase table",
-      "price": 120999
+      "price": 120999,
+      "beforeDiscountPrice" : 150000
     },
     {
       "category": "bedroom",
@@ -891,6 +897,7 @@
       ],
       "name": "armchair",
       "price": 12599,
+      "beforeDiscountPrice" : 20000,
       "reviews": 33,
       "shipping": true,
       "stars": 4.6,
@@ -2077,6 +2084,7 @@
       ],
       "name": "modern poster",
       "price": 3099,
+      "beforeDiscountPrice" : 5000,
       "reviews": 100,
       "shipping": true,
       "stars": 2.2,
@@ -2224,6 +2232,7 @@
       ],
       "name": "shelf",
       "price": 30999,
+      "beforeDiscountPrice" : 50000,
       "reviews": 38,
       "stars": 4.2,
       "stock": 4
@@ -2518,6 +2527,7 @@
       ],
       "name": "sofa set",
       "price": 129999,
+      "beforeDiscountPrice" : 160000,
       "reviews": 45,
       "shipping": true,
       "stars": 4.8,
@@ -2960,6 +2970,7 @@
       ],
       "name": "vase table",
       "price": 120999,
+      "beforeDiscountPrice" : 150000,
       "reviews": 12,
       "stars": 4.9,
       "stock": 2
