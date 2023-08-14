@@ -6,6 +6,7 @@ import Checkout from './CheckoutPage';
 import Error from './ErrorPage';
 import PrivateRoute from "./PrivateRoute";
 import SingleProduct from './SingleProductPage'
+import AuthWrapper from "./AuthWrapper";
 
 
 export{
@@ -16,5 +17,6 @@ export{
     Checkout,
     Error,
     PrivateRoute,
-    SingleProduct
+    SingleProduct,
+    AuthWrapper
 }
