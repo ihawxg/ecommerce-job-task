@@ -6,7 +6,7 @@ import { FaSearch } from 'react-icons/fa'
 const ListView = ({ products }) => {
   return <Wrapper>
     {products.map(product => {
-      const { id, image, name, price, description } = product;
+      const { id, image, name, price, description,beforeDiscountPrice } = product;
       return <article key={id}>
         <div className="container">
           <img src={image} alt={name} />
@@ -16,7 +16,8 @@ const ListView = ({ products }) => {
         </div>
         <div>
           <h4>{name}</h4>
-          <h5 className='price'>{formatPrice(price)}</h5>
+          {beforeDiscountPrice ? <h5 className='price'>{(price / 100)} <span style={{ textDecorationLine: 'line-through', textDecorationStyle: 'solid' }} >{(beforeDiscountPrice / 100).toFixed(2)}</span>лв.</h5> : <h5 className='price'>{formatPrice(price)}</h5>}
+          {/* <h5 className='price'>{formatPrice(price)}</h5> */}
           <p>{description.substring(0, 150)}...</p>
           <Link to={`/products/${id}`} className='btn'>
             Details
