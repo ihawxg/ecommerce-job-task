@@ -56,4 +56,3 @@
 - added notifications when item added or removed from the cart
 - added items with discounted price
 
-

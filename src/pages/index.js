@@ -7,6 +7,8 @@ import Error from './ErrorPage';
 import PrivateRoute from "./PrivateRoute";
 import SingleProduct from './SingleProductPage'
 import AuthWrapper from "./AuthWrapper";
+import StripeCheckout from "../Components/StripeCheckout";
+import PageHero from '../Components/PageHero'
 
 
 export{
@@ -18,5 +20,7 @@ export{
     Error,
     PrivateRoute,
     SingleProduct,
-    AuthWrapper
+    AuthWrapper,
+    StripeCheckout,
+    PageHero
 }
