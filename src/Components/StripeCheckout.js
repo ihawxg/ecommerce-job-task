@@ -12,6 +12,7 @@ import { useCartContext } from '../context/cart_context';
 import { useUserContext } from '../context/user_context';
 import { formatPrice } from '../utils/utils';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
@@ -26,6 +27,17 @@ const CheckoutForm = () => {
   const [clientSecret, setClientSecret] = useState('');
   const stripe = useStripe();
   const elements = useElements();
+
+  const notify = () => toast.info('Payment succeeded', {
+    position: "bottom-right",
+    autoClose: 2000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    });
 
   const createPaymentIntent = async () => {
     try {
@@ -86,6 +98,7 @@ const CheckoutForm = () => {
         navigate('/');
       }, 10000);
     }
+    notify();
   };
   return (
     <div>
