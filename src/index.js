@@ -6,7 +6,6 @@ import { ProductsProvider } from './context/products_context';
 import { FilterProvider } from './context/filter_context';
 import { CartProvider } from './context/cart_context';
 import { Auth0Provider } from '@auth0/auth0-react';
-import { redirect } from 'react-router-dom';
 import { UserProvider } from './context/user_context';
 
 // Auth0

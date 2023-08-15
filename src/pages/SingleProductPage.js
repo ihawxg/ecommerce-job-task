@@ -29,7 +29,7 @@ const SingleProductPage = () => {
 
   useEffect(() => {
     fetchSingleProduct(`${url}/${urlId}.json`);
-  }, [urlId])
+  }, [urlId,fetchSingleProduct])
 
 
   if (loading) {
