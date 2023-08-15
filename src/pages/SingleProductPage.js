@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useProductsContext } from '../context/products_context'
@@ -29,7 +30,7 @@ const SingleProductPage = () => {
 
   useEffect(() => {
     fetchSingleProduct(`${url}/${urlId}.json`);
-  }, [urlId,fetchSingleProduct])
+  }, [urlId])
 
 
   if (loading) {
