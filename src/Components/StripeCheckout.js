@@ -28,7 +28,18 @@ const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
 
-  const notify = () => toast.info('Payment succeeded', {
+  const notifySuccess = () => toast.info('Payment succeeded', {
+    position: "bottom-right",
+    autoClose: 2000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    });
+
+   const notifyFail = ()=>toast.error('Payment failed', {
     position: "bottom-right",
     autoClose: 2000,
     hideProgressBar: true,
@@ -89,6 +100,7 @@ const CheckoutForm = () => {
     if (payload.error) {
       setError(`Payment failed ${payload.error.message}`);
       setProcessing(false);
+      notifyFail();
     } else {
       setError(null);
       setProcessing(false);
@@ -97,8 +109,9 @@ const CheckoutForm = () => {
         clearCart();
         navigate('/');
       }, 10000);
+      notifySuccess();
     }
-    notify();
+    
   };
   return (
     <div>

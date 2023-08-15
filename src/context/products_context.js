@@ -8,7 +8,7 @@ import { SIDEBAR_OPEN, SIDEBAR_CLOSE, GET_PRODUCTS_BEGIN, GET_PRODUCTS_SUCCESS, 
 
 
 const initialState = {
-  isSidebarOpen: true,
+  isSidebarOpen: false,
   product_loading: false,
   product_error: false,
   all_fetched_products:[],
