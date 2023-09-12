@@ -1,13 +1,36 @@
-A Fully Functional E-Commerce Website Built With React, With Authentication and Credit Card Support
+eCommerce Store
+C4 Nexus
+This project was created as part of a job assignment for C4 Nexus, aligning with their specified requirements.
 
-- Used Auth0 API for authentication
-- Used Stripe API for Credit Card checkout
+A Fully Functional E-Commerce Website Built With React, With Authentication and Credit Card Support
+I built the website entirely from scratch and designed it without using any pre-made component libraries to demonstrate proficiency in JavaScript, HTML and CSS
+
+Ensured responsive design for seamless user experience on both desktop and mobile devices
+
+The site has :
+- Developed a navigational menu with 4 pages (5 if logged in)
+- Implemented a product counter section to display the number of products in the product grid (x out of y)
+- Implemented grid and list view for better user experience
+- Developed a filtering mechanism for categories, companies, colors, price range, and shipping
+- Integrated sorting mechanism allowing users to sort by A-Z, Z-A, Price Ascending, and Price Descending
+- Created a section for product name and description, providing a brief overview of the category
+- Implemented a load more button functionality to load additional pages of product tiles in the grid
+
+Technologies : 
+- Utilized Auth0 API for secure authentication
+- Utilized Stripe API to implement credit card checkout functionality
+- Implemented backend using Firebase
+- Utilized Axios for data fetching
+- Used Styled-Components to design components
+- Implemented global state management using React Context API
+- Utilized React Router for efficient page navigation
 
 You can see the project from here :
 - Netlify link : https://a-s-ecommerce-shop.netlify.app/
 - Or download the project, run - npm install, and start the project with - ntl dev
 
 Worknotes:
+
 7/8/2023
 - Added Header, Footer
 - Added Routes to the page
