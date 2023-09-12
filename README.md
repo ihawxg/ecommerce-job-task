@@ -1,5 +1,7 @@
 eCommerce Store
+
 C4 Nexus
+
 This project was created as part of a job assignment for C4 Nexus, aligning with their specified requirements.
 
 A Fully Functional E-Commerce Website Built With React, With Authentication and Credit Card Support
