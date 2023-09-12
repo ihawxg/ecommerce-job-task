@@ -1,10 +1,7 @@
-Ecommerce Shop Made by: Angel Manchev
+A Fully Functional E-Commerce Website Built With React, With Authentication and Credit Card Support
 
-An online ecommerce shop.
-- The Site is fully responsive
-- Used Auth0 for authentication
-- Used Stripe for checkout
-- Deployed to Netlify
+- Used Auth0 API for authentication
+- Used Stripe API for Credit Card checkout
 
 You can see the project from here :
 - Netlify link : https://a-s-ecommerce-shop.netlify.app/
